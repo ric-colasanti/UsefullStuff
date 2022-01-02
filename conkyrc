@@ -38,13 +38,14 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     use_xft = true,
-    font = 'DejaVu Sans Mono:size=12',
+    font = 'DejaVu Sans Mono:size=10',
     gap_x = 15,
     gap_y = 20,
     minimum_height = 5,
 	minimum_width = 5,
     net_avg_samples = 2,
     no_buffers = true,
+    double_buffer = true,
     out_to_console = false,
     out_to_stderr = false,
     extra_newline = false,
@@ -55,7 +56,7 @@ conky.config = {
     own_window_hints = 'below,undecorated,sticky,skip_taskbar,skip_pager',                  -- if own_window true - just hints - own_window_type sets it
     own_window_title = 'system_conky',          -- Manually set the window name. Defaults to "<hostname> - conky".
     stippled_borders = 0,
-    update_interval = 10.0,
+    update_interval = 4.0,
     uppercase = false,
     use_spacer = 'none',
     show_graph_scale = false,
@@ -63,14 +64,16 @@ conky.config = {
 }
 
 conky.text = [[
-${font LCD2:size=36}$color ${time %k}:${time %M} ${font}
+${font LCD2:size=28}$color$alignr${time %R}${font}
+$color $alignr  ${time %A}  ${time %x}
 ${color #735E24} $hr
 ${color #735E24}Uptime:$color $uptime
 ${color #735E24}Frequency (in MHz):$color $freq
 ${color #735E24}Frequency (in GHz):$color $freq_g
 ${color #735E24}RAM Usage :$color $memperc% ${color orange} ${membar 8}
 ${color #735E24}Swap Usage:$color $swapperc% ${color orange} ${swapbar 8}
-${color #735E24}CPU Usage :$color $cpu% ${color orange} ${cpubar 8}
+${color #735E24}Core1 Usage :$color ${cpu cpu1}% ${color orange} ${cpubar cpu1 8}
+${color #735E24}Core2 Usage :$color ${cpu cpu2}% ${color orange} ${cpubar cpu2 8}
 ${color #735E24}Processes :$color $processes  ${color #735E24}Running:$color $running_processes
 ${color #735E24} $hr
 ${color #735E24}File systems:
