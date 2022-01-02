@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=conky
+Comment=conky
+NoDisplay=true
+Exec= conky
